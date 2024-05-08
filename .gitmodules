@@ -1,0 +1,3 @@
+[submodule "Zao/vender/spdlog"]
+	path = Zao/vender/spdlog
+	url = git@github.com:gabime/spdlog.git
