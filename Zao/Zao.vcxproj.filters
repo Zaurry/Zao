@@ -27,9 +27,15 @@
     <ClInclude Include="src\Zao\EntryPoint.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Zao\Log.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Zao\Application.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Zao\Log.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
