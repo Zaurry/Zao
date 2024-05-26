@@ -1,3 +1,6 @@
 [submodule "Zao/vendor/spdlog"]
 	path = Zao/vendor/spdlog
 	url = git@github.com:gabime/spdlog.git
+[submodule "Zao/vendor/glfw"]
+	path = Zao/vendor/glfw
+	url = https://github.com/TheCherno/glfw

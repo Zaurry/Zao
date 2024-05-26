@@ -5,6 +5,7 @@
 
 #include "Zao\Log.h"
 #include "Zao\Application.h"
+#include "Zao\Event\Event.h"
 
  
 /**********Entry Point************/
