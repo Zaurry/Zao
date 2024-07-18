@@ -1,10 +1,10 @@
 #pragma once
 
 #include "Zao/Window.h"
+
 #include "GLFW/glfw3.h"
 
 namespace Zao {
-
 
 	class ZAO_API WindowsWindow : public Window
 	{
@@ -20,9 +20,10 @@ namespace Zao {
 		void SetEventCallbackFn(const EventCallbackFn& callback) override { m_Data.EventCallback = callback; }
 		void SetVSync(bool enabled) override;
 		inline bool IsVSync() const override { return m_Data.Vsync; }
+
 	private:
 		void Init(const WindowProps& props);
-		void ShutdownWindow();
+		void Shutdown();
 	private:
 		GLFWwindow* m_Window;
 

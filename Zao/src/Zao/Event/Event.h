@@ -56,8 +56,8 @@ namespace Zao {
 			:m_event(event) {}
 
 		template<typename T>
-		bool Dispatcher(EventFn<T> func) {  //报错：如果不写<T>,编译器无法推断类型
-			if (m_event.GetEventType() == T::GetStaticType) {
+		bool Dispatch(EventFn<T> func) {  //报错：如果不写<T>,编译器无法推断类型
+			if (m_event.GetEventType() == T::GetStaticType()) {
 				m_event.Handled = func(static_cast<T&>(m_event));
 				return true;
 			}

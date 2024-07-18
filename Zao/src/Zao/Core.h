@@ -11,7 +11,6 @@
 #endif
 
 #ifdef ZAO_ENABLE_ASSERTS
-//a bracket is needed to make the macro work correctly
 	#define ZAO_CORE_ASSERT(x, ...) if (!(x)) { ZAO_CORE_ERRER("Assertion faild: {0}", __VA_ARGS__); __debugbreak(); }  
 	#define ZAO_ASSERT(x, ...) if (!(x)) { ZAO_ERRER("Assertion faild: {0}", __VA_ARGS__); __debugbreak(); }
 #else
@@ -21,3 +20,6 @@
 
 //used to create a mask
 #define BIT(x) (1 << x)
+
+//used to bind event function
+#define ZAO_BIND_EVENT_FN(fn) std::bind(&fn, this, std::placeholders::_1)

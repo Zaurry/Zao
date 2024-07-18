@@ -4,14 +4,23 @@
     <Filter Include="Platform">
       <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Platform\Opengl">
+      <UniqueIdentifier>{5E812C1D-CA0C-9AE1-D31D-1DD63F28F6E1}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Zao">
       <UniqueIdentifier>{AF3E880B-1B48-887C-A4C3-9E7C10CC937C}</UniqueIdentifier>
     </Filter>
     <Filter Include="Zao\Event">
       <UniqueIdentifier>{40C7133E-AC31-C8B4-F56F-795A6119A609}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Zao\ImGui">
+      <UniqueIdentifier>{19BB563E-8525-0BB5-CE63-BC5A3A0DE909}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Platform\Opengl\imguiOpenglRenderer.h">
+      <Filter>Platform\Opengl</Filter>
+    </ClInclude>
     <ClInclude Include="src\Platform\WindowsWindow.h">
       <Filter>Platform</Filter>
     </ClInclude>
@@ -37,6 +46,15 @@
     <ClInclude Include="src\Zao\Event\MouseEvent.h">
       <Filter>Zao\Event</Filter>
     </ClInclude>
+    <ClInclude Include="src\Zao\ImGui\ImGuiLayer.h">
+      <Filter>Zao\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Zao\Layer.h">
+      <Filter>Zao</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Zao\LayerStack.h">
+      <Filter>Zao</Filter>
+    </ClInclude>
     <ClInclude Include="src\Zao\Log.h">
       <Filter>Zao</Filter>
     </ClInclude>
@@ -46,18 +64,27 @@
     <ClInclude Include="src\zpch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Platform\Opengl\imguiOpenglRenderer.cpp">
+      <Filter>Platform\Opengl</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\WindowsWindow.cpp">
       <Filter>Platform</Filter>
     </ClCompile>
     <ClCompile Include="src\Zao\Application.cpp">
       <Filter>Zao</Filter>
     </ClCompile>
+    <ClCompile Include="src\Zao\ImGui\ImGuiLayer.cpp">
+      <Filter>Zao\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Zao\Layer.cpp">
+      <Filter>Zao</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Zao\LayerStack.cpp">
+      <Filter>Zao</Filter>
+    </ClCompile>
     <ClCompile Include="src\Zao\Log.cpp">
       <Filter>Zao</Filter>
     </ClCompile>
     <ClCompile Include="src\zpch.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>

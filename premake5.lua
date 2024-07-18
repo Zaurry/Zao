@@ -1,6 +1,6 @@
 workspace "Zao"
 	architecture "x64"
-
+	startproject "Sandbox"
 	configurations {
 		"Debug",
 		"Release",
@@ -11,18 +11,24 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 -- Include directories relative to root folder (solution directory)
 IncludeDir = {}
-IncludeDir["GLFW"] = "Zao/vendor/glfw/include"
+IncludeDir["GLFW"] = "Zao/vendor/GLFW/include"
+IncludeDir["Glad"] = "Zao/vendor/Glad/include"
+IncludeDir["ImGui"] = "Zao/vendor/imgui"
 
-include "Zao/vendor/glfw"
+include "Zao/vendor/GLFW"
+include "Zao/vendor/Glad"
+include "Zao/vendor/imgui"
 
 project "Zao"
 	location "Zao"
 	kind "SharedLib"
 	language "C++"
-	
+
 	links {
 		"GLFW",
 		"opengl32.lib", --for windows
+		"Glad",
+		"ImGui"
 	}
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
@@ -39,30 +45,36 @@ project "Zao"
 	includedirs { 
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}",
+		"%{IncludeDir.ImGui}"
 	}
 
 	filter "system:windows"
 		cppdialect "C++20"
-		staticruntime "off" --Sets <RuntimeLibrary> to "MultiThreaded Debug DLL" 可以使程序体积会减小
+		--staticruntime "off" --Sets <RuntimeLibrary> to "MultiThreaded Debug DLL" 可以使程序体积会减小
 		systemversion "latest"
 
 		defines {
 			"ZAO_BUILD_DLL",
-			"ZAO_PLATFORM_WINDOWS"
+			"ZAO_PLATFORM_WINDOWS",
+			"GLFW_INCLUDE_NONE"
 		}
 
 	filter "configurations:Debug"
 		defines {"ZAO_DEBUG", "ZAO_ENABLE_ASSERTS"}
 		symbols "On" --for debugging
+		runtime "Debug"
 
 	filter "configurations:Release"
 		defines "ZAO_RELEASE"
 		optimize "On"
+		runtime "Release"
 
 	filter "configurations:Dist"
 		defines "ZAO_DIST"
 		optimize "On"
+		runtime "Release"
 
 
 project "Sandbox"
@@ -91,7 +103,7 @@ project "Sandbox"
 	
 	filter "system:windows"
 		cppdialect "C++20"
-		staticruntime "On" --Sets <RuntimeLibrary> to "MultiThreaded"
+		staticruntime "off" --Sets <RuntimeLibrary> to "MultiThreaded DLL" must be MDd !!!!!!!!!!!
 		systemversion "latest"
 
 		defines {

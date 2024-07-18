@@ -26,7 +26,7 @@ namespace Zao {
 
 		virtual void OnUpdate() = 0;
 
-		using EventCallbackFn = std::function<void(Event&)>;
+		using EventCallbackFn = std::function<void(Event&)>; //回调函数，用于传递和处理窗口事件
 
 		virtual unsigned int GetWidth() const = 0;
 		virtual unsigned int GetHeight() const = 0;

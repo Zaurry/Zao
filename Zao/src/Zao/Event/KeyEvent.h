@@ -1,6 +1,4 @@
 #pragma once
-
-
 #include "Event.h"
 
 namespace Zao {
@@ -33,10 +31,10 @@ namespace Zao {
 		bool m_IsRepeat; 
 	};
 
-	class ZAO_API KeyReleaseEvent : public KeyEvent {
+	class ZAO_API KeyReleasedEvent : public KeyEvent {
 	public:
 
-		KeyReleaseEvent(const int keycode) 
+		KeyReleasedEvent(const int keycode) 
 			: KeyEvent(keycode) {}
 
 		std::string ToString() const override {
